@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/rediahmdsCode/language-guesser/issues"
   },
-  "homepage": "https://github.com/rediahmdsCode/language-guesser#readme"
+  "homepage": "https://github.com/rediahmdsCode/language-guesser#readme",
+  "dependencies": {
+    "franc-all": "^7.1.0"
+  }
 }
