@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/rediahmdsCode/language-guesser#readme",
   "dependencies": {
-    "franc-all": "^7.1.0"
-  }
+    "franc": "^6.1.0"
+  },
+  "type": "module"
 }
