@@ -1,0 +1,24 @@
+{
+  "name": "language-guesser",
+  "version": "1.0.0",
+  "description": "A terminal-based node app to guess the language of a given argv string",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rediahmdsCode/language-guesser.git"
+  },
+  "keywords": [
+    "beginner-project",
+    "javascript",
+    "node"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rediahmdsCode/language-guesser/issues"
+  },
+  "homepage": "https://github.com/rediahmdsCode/language-guesser#readme"
+}
