@@ -20,5 +20,5 @@ function detectLanguage(sentence) {
 }
 
 
-if (detectLanguage(args[0] === 'und')) console.error(`Sorry, we could not detect the language :(`)
+if (detectLanguage(args[0]) === 'und') console.error(`Sorry, we could not detect the language :(`)
 else console.log(langs.where('2', detectLanguage(args[0])).name);
