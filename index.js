@@ -19,6 +19,15 @@ function detectLanguage(sentence) {
   return franc(sentence, { minLength: 3 });
 }
 
+/**
+ * showDetectedLanguage will output the language of the given text
+ * @returns {string} Language name as a string
+ */
+function showDetectedLang() {
+  return langs.where('2', detectLanguage(args[0]))['name']
+}
 
 if (detectLanguage(args[0]) === 'und') console.error(`Sorry, we could not detect the language :(`)
-else console.log(langs.where('2', detectLanguage(args[0])).name);
+else console.log(`Our best guess is ${showDetectedLang()}`);
+
+
