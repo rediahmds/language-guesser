@@ -1,11 +1,11 @@
 // These lines make "require" available
-import { createRequire } from 'module';
+import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
-const process = require('process');
+const process = require("process");
 
-import { franc } from 'franc';
-const langs = require('langs');
+import { franc } from "franc";
+const langs = require("langs");
 
 const args = process.argv.slice(2);
 console.table(args);
@@ -24,10 +24,13 @@ function detectLanguage(sentence) {
  * @returns {string} Language name as a string
  */
 function showDetectedLang() {
-  return langs.where('2', detectLanguage(args[0]))['name']
+  return langs.where("2", detectLanguage(args[0]))["name"];
 }
 
-if (detectLanguage(args[0]) === 'und') console.error(`Sorry, we could not detect the language :(`)
-else console.log(`Our best guess is ${showDetectedLang()}`);
-
-
+try {
+  if (detectLanguage(args[0]) === "und")
+    console.error(`Sorry, we could not detect the language :(`);
+  else console.log(`Our best guess is ${showDetectedLang()}`);
+} catch (error) {
+  console.error(`Sorry, we could not detect the language :(`);
+}
