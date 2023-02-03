@@ -11,26 +11,39 @@ const args = process.argv.slice(2);
 console.table(args);
 
 /**
- * detectLanguage will detect the language of given argument.
- * @param {string} sentence - A word or sentence to test.
- * @returns {string} - Language code consists of three character. May return 'und' which means 'undetermined', so handle it correctly.
+ * Detect the language of given command line arguments.
+ * @returns {string[]} An array of string containing languages name. The length of this array can may vary, based on how many arguments given via the command line.
  */
-function detectLanguage(sentence) {
-  return franc(sentence, { minLength: 3 });
+function detectLanguage() {
+  const langsList = [];
+
+  args.forEach((arg) => {
+    langsList.push(franc(arg, { minLength: 3 }));
+  });
+
+  return langsList;
 }
 
 /**
- * showDetectedLanguage will output the language of the given text
- * @returns {string} Language name as a string
+ * Print the language of the given text.
  */
 function showDetectedLang() {
-  return langs.where("2", detectLanguage(args[0]))["name"];
+  const langsList = detectLanguage();
+  langsList.forEach((lang) => {
+    try {
+      if (lang === "und")
+        console.error(`Sorry, we could not detect the language :(`);
+      else console.log(`Our best guess is ${langs.where("2", lang)["name"]}`);
+    } catch (err) {
+      console.error(`Oops! ${err.message}`);
+      console.log(`Our best guess is ${langs.where("2", lang)["name"]}`);
+    }
+  });
 }
 
-try {
-  if (detectLanguage(args[0]) === "und")
-    console.error(`Sorry, we could not detect the language :(`);
-  else console.log(`Our best guess is ${showDetectedLang()}`);
-} catch (error) {
-  console.error(`Sorry, we could not detect the language :(`);
+// Main program
+function main() {
+  showDetectedLang();
 }
+
+main();
